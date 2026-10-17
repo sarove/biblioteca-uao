@@ -1,0 +1,75 @@
+==============================================================
+ UNIVERSIDAD AUTÓNOMA DE OCCIDENTE - Santiago de Cali
+ Facultad de Ingeniería - Ingeniería Informática
+==============================================================
+
+ Asignatura : Estructuras de Datos y Algoritmos II
+ Entrega    : PROYECTO FINAL - Plataforma de Biblioteca Universitaria
+ Estudiante : Salvador Rodriguez Velasco
+ Semestre   : Sexto (6)
+ Profesor   : Jonathan López Londoño
+ Fecha      : Octubre de 2026
+
+--------------------------------------------------------------
+ DESCRIPCIÓN
+--------------------------------------------------------------
+ Plataforma web para la biblioteca universitaria: catálogo con
+ buscador, préstamos, devoluciones, reservas con lista de espera
+ y recomendaciones de lectura. Frontend en React, backend en
+ Node.js (Express) y base de datos SQLite con transacciones.
+
+--------------------------------------------------------------
+ ESTRUCTURAS DE DATOS (rúbrica)
+--------------------------------------------------------------
+ Listas, Pilas o Colas (2):
+   1. PILA (LIFO)        Carrito de devoluciones por reubicar
+   2. COLA (FIFO)        Lista de espera de cada libro (nodos enlazados)
+ Árboles, Tries o Heaps (2 o más):
+   3. TRIE               Buscador con autocompletado
+   4. ÁRBOL N-ARIO       Clasificación: facultad > área > materia
+   5. HEAP (min y max)   Préstamos por vencer y libros más prestados
+ Grafos:
+   6. GRAFO PONDERADO    Recomendaciones, BFS y camino más corto
+                         (dibujado con react-d3-graph)
+
+--------------------------------------------------------------
+ BASE DE DATOS Y TRANSACCIONES
+--------------------------------------------------------------
+ SQLite (módulo nativo node:sqlite). Tablas: categories, books,
+ users, loans, reservations, return_stack.
+ Transacciones (BEGIN / COMMIT / ROLLBACK):
+   - Préstamo:   insertar préstamo + descontar ejemplar
+   - Devolución: cerrar préstamo + push al carrito (pila)
+   - Reubicar:   pop del carrito + dequeue de la lista de espera
+   - Reserva, cancelación, nuevo libro, nuevo usuario
+ Si no hay backend, el frontend usa "modo local": las mismas
+ reglas con transacciones en memoria y datos en localStorage.
+
+--------------------------------------------------------------
+ CONTENIDO DEL REPOSITORIO
+--------------------------------------------------------------
+ backend/     API REST + SQLite + pruebas (node:test)
+ frontend/    React 19 + Vite + estructuras en src/structures/
+ shared/      Datos de ejemplo y reglas de negocio compartidas
+ docs/        Documento final en Word
+ README.md    Integrantes, enlaces, estructuras, ejecución
+ netlify.toml Despliegue del frontend en Netlify
+ render.yaml  Despliegue del backend en Render
+
+--------------------------------------------------------------
+ CÓMO EJECUTAR
+--------------------------------------------------------------
+ Requisito: Node.js 22.13 o superior (recomendado 22 LTS).
+
+   1) npm run install:all
+   2) Terminal 1:  npm run dev:backend
+                   (API en http://localhost:3001/api)
+   3) Terminal 2:  cd frontend
+                   copiar .env.example como .env
+                   npm run dev
+   4) Abrir http://localhost:5173
+
+ Sin backend: npm run dev:frontend (modo local).
+ Pruebas:     npm test
+
+==============================================================
