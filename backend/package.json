@@ -1,0 +1,20 @@
+{
+  "name": "biblioteca-uao-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API REST con SQLite de la Biblioteca Universitaria - Proyecto Final EDA II - UAO. Estudiante: Salvador Rodriguez Velasco",
+  "author": "Salvador Rodriguez Velasco",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning src/server.js",
+    "dev": "node --disable-warning=ExperimentalWarning --watch src/server.js",
+    "test": "node --disable-warning=ExperimentalWarning --test tests/api.test.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.3.0"
+  }
+}
