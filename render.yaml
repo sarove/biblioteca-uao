@@ -1,0 +1,15 @@
+# Despliegue del BACKEND (API + SQLite) en Render como Blueprint.
+# Render > New > Blueprint > seleccionar este repositorio.
+services:
+  - type: web
+    name: biblioteca-uao-api
+    runtime: node
+    plan: free
+    buildCommand: npm install --prefix backend
+    startCommand: npm start --prefix backend
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: ALLOW_RESET
+        value: "true"

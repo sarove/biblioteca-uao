@@ -1,0 +1,16 @@
+# Despliegue del FRONTEND en Netlify
+# En Netlify: Site configuration > Environment variables > VITE_API_URL = https://<backend>.onrender.com/api
+# Si VITE_API_URL no se define, la plataforma funciona en "modo local" (datos en el navegador).
+[build]
+  base = "frontend"
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Single Page Application: todas las rutas sirven index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
