@@ -14,9 +14,9 @@ Plataforma web para la biblioteca universitaria: catálogo con buscador, présta
 
 | Servicio | Enlace |
 |---|---|
-| Repositorio Git | `https://github.com/<usuario>/biblioteca-uao` ⚠️ *reemplazar al subir el repositorio* |
+| Repositorio Git |https://github.com/sarove/biblioteca-uao |
 | Frontend publicado (Netlify) | `https://<sitio>.netlify.app` ⚠️ *reemplazar al publicar* |
-| Backend publicado (Render) | `https://biblioteca-uao-api.onrender.com/api/health` ⚠️ *reemplazar al publicar* |
+| Backend publicado (Render) | https://biblioteca-uao-srv.netlify.app |
 | Documento final | [`docs/Proyecto_Final_Biblioteca_UAO_Salvador_Rodriguez_Velasco.docx`](docs/) |
 
 Servicios usados para desplegar: **Netlify** (frontend estático, archivo `netlify.toml`) y **Render** (backend Node.js + SQLite, archivo `render.yaml`).
